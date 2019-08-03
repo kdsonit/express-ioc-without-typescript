@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const methodOverride = require('method-override');
 const routes = require('../api');
 const config = require('../config');
 
@@ -13,7 +14,7 @@ module.exports = ({ app }) => {
 
   app.enable('trust proxy');
   app.use(cors());
-  app.use(require('method-override')());
+  app.use(methodOverride());
   app.use(bodyParser.json());
 
   app.use(config.api.prefix, routes());

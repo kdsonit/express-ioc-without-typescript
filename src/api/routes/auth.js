@@ -1,10 +1,6 @@
 const { Router } = require('express');
-const { Container } = require('typedi');
-const AuthService = require('../../services/auth');
-
-const controller = require('./../controllers/AuthController');
-
 const { celebrate, Joi } = require('celebrate');
+const controller = require('./../controllers/AuthController');
 
 const route = Router();
 

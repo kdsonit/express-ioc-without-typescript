@@ -1,12 +1,12 @@
+require('reflect-metadata');
 const express = require('express');
 const config = require('./config');
 
 const Logger = require('./loaders/logger');
+const loaders = require('./loaders');
 
 async function startServer() {
   const app = express();
-
-  const loaders = require('./loaders');
 
   await loaders({
     expressApp: app,

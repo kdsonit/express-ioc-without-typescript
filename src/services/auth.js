@@ -1,12 +1,15 @@
+const { Inject, Service } = require('typedi');
 const jwt = require('jsonwebtoken');
 const argon2 = require('argon2');
 const { randomBytes } = require('crypto');
+
+const { decorate, metadata, param } = require('./../core');
 const config = require('../config');
 
 class AuthService {
-  constructor(Container) {
-    this.userModel = Container.get('userModel');
-    this.logger = Container.get('logger');
+  constructor(userModel, logger) {
+    this.userModel = userModel;
+    this.logger = logger;
   }
 
   async SignUp(userInputDTO) {
@@ -84,4 +87,12 @@ class AuthService {
   }
 }
 
-module.exports = AuthService;
+module.exports = decorate(
+  [
+    Service(),
+    param(0, Inject('userModel')),
+    param(1, Inject('logger')),
+    metadata('design:paramtypes', [Object, Object]),
+  ],
+  AuthService,
+);

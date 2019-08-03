@@ -2,9 +2,10 @@
   "name": "bulletproof-express",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint":"./node_modules/.bin/eslint ./src"
   },
   "keywords": [],
   "author": "",
@@ -30,7 +31,7 @@
     "moment-timezone": "^0.5.23",
     "mongoose": "^5.4.13",
     "morgan": "^1.9.1",
-    "reflect-metadata": "^0.1.12",
+    "reflect-metadata": "^0.1.13",
     "typedi": "^0.8.0",
     "winston": "^3.2.1"
   },
